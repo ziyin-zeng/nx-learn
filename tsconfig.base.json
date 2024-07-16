@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nx-learn/loading": ["libs/loading/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

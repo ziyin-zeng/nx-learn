@@ -1,3 +1,5 @@
+import { Loading } from '@nx-learn/loading'
+
 export default function Index() {
   /*
    * Replace the elements below with your own.
@@ -13,6 +15,7 @@ export default function Index() {
               <span> Hello there, </span>
               Welcome nx-learn 👋
             </h1>
+            <Loading />
           </div>
 
           <div id="hero" className="rounded">
