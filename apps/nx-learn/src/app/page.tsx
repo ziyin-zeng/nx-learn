@@ -1,4 +1,6 @@
-import { Loading } from '@nx-learn/loading'
+'use client'
+import { Loading } from '@nx-learn/loading';
+import React, {useEffect, useState} from 'react';
 
 export default function Index() {
   /*
@@ -6,6 +8,18 @@ export default function Index() {
    *
    * Note: The corresponding styles are in the ./index.tailwind file.
    */
+
+  const [apiResponse, setApiResponse] = useState({message : "Loading..."});
+
+  useEffect(() => {
+    fetch('/api').then(res => res.json()).then(setApiResponse);
+  }, []);
+
+  const handleClick = async () => {
+    await fetch('http://localhost:3000/api').then(res => res.json()).then(setApiResponse);
+    // setApiResponse({message : "Clicked..."})
+  }
+
   return (
     <div>
       <div className="wrapper">
@@ -16,6 +30,8 @@ export default function Index() {
               Welcome nx-learn 👋
             </h1>
             <Loading />
+            <button onClick={handleClick}>click</button>
+            {apiResponse.message}
           </div>
 
           <div id="hero" className="rounded">
